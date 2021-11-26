@@ -1,0 +1,15 @@
+{% extends 'accounts/main.html' %}
+{% load static%}
+
+{% block content%}
+
+<p>Tem certeza que deseja excluir? {{order}}</p>
+
+<form method="POST" action={% url 'delete_order' order.id%}>
+    {% csrf_token %}
+    <a href="{% url 'home'%}">Cancel</a>
+    <input type=submit name="Confirm">
+</form>
+
+
+{% endblock %}
